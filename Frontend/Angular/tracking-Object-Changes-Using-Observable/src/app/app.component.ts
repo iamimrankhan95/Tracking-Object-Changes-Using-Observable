@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tracking-object-changes';
+  title = 'tracking-Object-Changes-Using-Observable';
 }
