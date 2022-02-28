@@ -5,6 +5,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserStatusDropdownComponent } from './user-status-dropdown/user-status-dropdown.component';
+import { MaterialModule } from 'src/material.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UserStatusDropdownComponent } from './user-status-dropdown/user-status-
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    MaterialModule
   ]
 })
 export class UserModule { }

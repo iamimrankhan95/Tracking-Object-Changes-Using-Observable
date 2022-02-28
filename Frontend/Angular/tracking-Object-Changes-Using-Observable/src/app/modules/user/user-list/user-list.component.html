@@ -1,1 +1,14 @@
-<p>user-list works!</p>
+<mat-card>
+  <mat-card-title>Friend List</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let friend of friends">
+        <div *ngIf="friend.status === 'Active'">
+          <!-- <fa-icon [icon]="['fas', 'square']"></fa-icon> -->
+        </div>
+        <div mat-line>{{friend.name}}</div>
+        <div mat-line> {{friend.status}} </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
