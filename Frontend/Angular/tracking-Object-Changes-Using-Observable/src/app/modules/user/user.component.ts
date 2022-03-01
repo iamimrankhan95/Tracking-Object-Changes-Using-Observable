@@ -15,4 +15,8 @@ export class UserComponent implements OnInit {
     //sign out code
     console.log('sign out hit from parent')
   }
+  StatusDropdown() {
+    //sign out code
+    console.log('status dropdown hit from parent')
+  }
 }
