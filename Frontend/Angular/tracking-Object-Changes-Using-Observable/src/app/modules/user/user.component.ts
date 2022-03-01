@@ -11,5 +11,8 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  SignOut() {
+    //sign out code
+    console.log('sign out hit from parent')
+  }
 }
