@@ -6,6 +6,7 @@ export class User {
 export class Status{
     public id!:number;
     public activeStatus!: string;
+    public color!: string;
 }
 export enum StatusList{
     ACTIVE="Active",

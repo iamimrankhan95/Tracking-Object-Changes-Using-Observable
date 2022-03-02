@@ -65,6 +65,17 @@ export class UserStatusDropdownComponent implements OnInit {
 
   changeStatus(){
     console.log(this.activeStatus);
+    switch (this.activeStatus) {
+      case 'Active':
+        this.color = '#4287f5';
+        break;
+      case 'Busy':
+        this.color = '#f20707';
+        break;
+      case 'Offline':
+        this.color = '#c4c4c4';
+        break;
+    }
     let params:  Map<string,any> = new Map();
     this.user.status.activeStatus = this.activeStatus;
     params.set("user",this.user);
