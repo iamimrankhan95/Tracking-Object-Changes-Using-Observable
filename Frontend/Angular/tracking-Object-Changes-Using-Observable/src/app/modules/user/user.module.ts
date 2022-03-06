@@ -7,6 +7,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserStatusDropdownComponent } from './user-status-dropdown/user-status-dropdown.component';
 import { MaterialModule } from 'src/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     UserRoutingModule,
     MaterialModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ]
 })
 export class UserModule { }
