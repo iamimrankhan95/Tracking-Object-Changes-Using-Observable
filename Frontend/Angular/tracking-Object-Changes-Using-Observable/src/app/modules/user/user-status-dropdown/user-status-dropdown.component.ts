@@ -10,10 +10,8 @@ import { UserService } from '../user.service';
 export class UserStatusDropdownComponent implements OnInit {
   user: User = new User();
   activeStatus: Status = new Status() ;
-  // selected:string;
   color: string = '#4287f5';
   statusList: Status[] = [];
-  // userId: any;
   constructor(private userService: UserService) {
     this.user.id = 2;
   }
