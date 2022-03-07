@@ -8,13 +8,15 @@ import { UserStatusDropdownComponent } from './user-status-dropdown/user-status-
 import { MaterialModule } from 'src/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { LoggedUserStatusComponent } from './logged-user-status/logged-user-status.component';
 
 
 @NgModule({
   declarations: [
     UserComponent,
     UserListComponent,
-    UserStatusDropdownComponent
+    UserStatusDropdownComponent,
+    LoggedUserStatusComponent
   ],
   imports: [
     CommonModule,
