@@ -9,8 +9,12 @@ export class UserService {
 
   constructor( private http:HttpClient) { }
 
-  public fetchUserDetailsById(queryParams: Map<string,any>): Observable<any>{
+  public fetchUserDetailsById(queryParams: Map<string,number>): Observable<any>{
+    console.log(queryParams.get(Urls.FETCH_USER_DETAILS_BY_USER_ID));
     return this.http.get(Urls.FETCH_USER_DETAILS_BY_USER_ID + queryParams.get("id"));
+  }
+  public fetchAllUsersList(): Observable<any>{
+    return this.http.get(Urls.FETCH_ALL_USERS);
   }
   public fetchAllStatus(): Observable<any>{
     return this.http.get(Urls.FETCH_ALL_STATUS);
@@ -19,4 +23,5 @@ export class UserService {
   public changeActiveStatusByUserId(queryParams: Map<string,any>): Observable<any>{
     return this.http.post(Urls.CHANGE_ACTIVE_STATUS,queryParams.get("user"));
   }
+
 }

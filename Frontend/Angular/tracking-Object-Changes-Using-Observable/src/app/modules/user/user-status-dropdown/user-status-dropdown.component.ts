@@ -1,87 +1,89 @@
 import { Component, OnInit } from '@angular/core';
-import { StatusList, User } from 'src/app/shared/models/user.entity';
+import { Status, StatusList, User } from 'src/app/shared/models/user.entity';
 import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-status-dropdown',
   templateUrl: './user-status-dropdown.component.html',
-  styleUrls: ['./user-status-dropdown.component.scss']
+  styleUrls: ['./user-status-dropdown.component.scss'],
 })
 export class UserStatusDropdownComponent implements OnInit {
   user: User = new User();
-  activeStatus:string = "Active";
-  // selected:string;
-  color:string = "#4287f5";
-  statusList:any[] =[];
-  // userId: any;
-  constructor(private userService:UserService ) { 
-    this.user.id = 1;  }
+  activeStatus: Status = new Status() ;
+  color: string = '#4287f5';
+  statusList: Status[] = [];
+  constructor(private userService: UserService) {
+    this.user.id = 2;
+  }
 
   ngOnInit(): void {
-    
     this.fetchUserDetails();
     this.fetchStatusList();
   }
 
-  fetchUserDetails(){
-    let params:  Map<string,any> = new Map();
-    params.set("id",this.user.id);
+  fetchUserDetails() {
+    let params: Map<string, any> = new Map();
+    params.set('id', this.user.id);
     this.userService.fetchUserDetailsById(params).subscribe({
-      next: (data)=>{
-        if(data){
+      next: (data) => {
+        if (data) {
+          console.log('data from server' + data);
           this.user = data;
-          this.activeStatus= data.status.activeStatus;
+          this.activeStatus = data.status;
         }
       },
-      error:(err)=>{
-        console.log('HTTP Error', err)
-        this.user.name ="Faysal Ahmad";
+      error: (err) => {
+        console.log('HTTP Error', err);
+        this.user.name = 'Faysal Ahmad';
         this.user.status.activeStatus = StatusList.ACTIVE;
-        this.activeStatus= "Active"; 
       },
-      complete: () => console.info('complete')
-
-    })
+      complete: () => console.info('complete'),
+    });
   }
-  fetchStatusList(){
+  fetchStatusList() {
     this.userService.fetchAllStatus().subscribe({
-      next: (data)=>{
-          if(data){
-      this.statusList = data.content;
-    }
+      next: (data) => {
+        if (data) {
+          console.log(data);
+          this.statusList = data;
+        }
       },
-      error: (err)=>{
-          this.statusList = [
-      {label:"Active",value:StatusList.ACTIVE},
-      {label:"Busy",value:StatusList.BUSY},
-      {label:"Offline",value:StatusList.OFFLINE},
-    ]
+      error: (err) => {
+        this.statusList = [
+    {
+      "id": 1,
+      "activeStatus": "ACTIVE",
+      "color": "#4287f5"
+  },
+  {
+      "id": 2,
+      "activeStatus": "BUSY",
+      "color": "#f20707"
+  },
+  {
+      "id": 3,
+      "activeStatus": "OFFLINE",
+      "color": "#c4c4c4"
+  },
+  {
+      "id": 4,
+      "activeStatus": "MEETING",
+      "color": "#ed522b"
+  }
+]
       },
-      complete: () => console.info('complete')
-    
-     
-    })
+      complete: () => console.info('complete'),
+    });
   }
 
-  changeStatus(){
+  changeStatus() {
     console.log(this.activeStatus);
-    switch (this.activeStatus) {
-      case 'Active':
-        this.color = '#4287f5';
-        break;
-      case 'Busy':
-        this.color = '#f20707';
-        break;
-      case 'Offline':
-        this.color = '#c4c4c4';
-        break;
-    }
-    let params:  Map<string,any> = new Map();
-    this.user.status.activeStatus = this.activeStatus;
-    params.set("user",this.user);
-    console.log("status changed to "+ this.activeStatus);
-    this.userService.changeActiveStatusByUserId(params).subscribe((data)=>{
+    this.activeStatus = this.user.status;
+    let params: Map<string, any> = new Map();
+    params.set('user', this.user);
+    console.log('status changed to ' + this.activeStatus);
+    this.userService.changeActiveStatusByUserId(params).subscribe((data) => {
       console.log(data);
-    })
+    });
   }
 }
