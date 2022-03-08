@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialExampleModule } from '../material.module';
+import { MaterialModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule } from '@angular/material/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent
@@ -18,9 +18,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MatNativeDateModule,
-    MaterialExampleModule,
     ReactiveFormsModule,
+    MaterialModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
