@@ -9,6 +9,7 @@ class TrackingObjectChangesUsingObservableApplicationTests {
     @Test
     void contextLoads() {
         System.out.println("testing if ignor this file");
+        System.out.println("I am testing here, wants to ignor this file");
     }
 
 }
