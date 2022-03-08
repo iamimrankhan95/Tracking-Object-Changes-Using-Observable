@@ -8,6 +8,7 @@ class TrackingObjectChangesUsingObservableApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("hello");
     }
 
 }
