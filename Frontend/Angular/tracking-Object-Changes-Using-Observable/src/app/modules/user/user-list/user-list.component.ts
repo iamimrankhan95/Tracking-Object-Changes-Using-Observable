@@ -6,10 +6,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-
+  friends: Friend[] = [
+    {
+      name: 'Faysal',
+      status: 'Active',
+    },
+    {
+      name: 'Akhtar',
+      status: 'Offline',
+    },
+    {
+      name: 'Jannat',
+      status: 'Active',
+    },
+  ];
   constructor() { }
 
   ngOnInit(): void {
   }
 
+}
+
+
+export interface Friend {
+  name: string;
+  status: string;
 }
