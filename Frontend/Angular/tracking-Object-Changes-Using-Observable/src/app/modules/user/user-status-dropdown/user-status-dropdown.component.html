@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12" >
     <mat-card>
       <mat-card-content>
         <div class="row">
@@ -14,7 +14,7 @@
               <mat-form-field appearance="outline"  >
                 <mat-label>{{activeStatus.activeStatus}}</mat-label>
                 <mat-select [(ngModel)]="user.status" (selectionChange)="changeStatus()">
-                  <mat-option *ngFor="let status of statusList" [value]="status">{{status.activeStatus}}</mat-option>
+                  <mat-option class="not-empty-select" *ngFor="let status of statusList" [value]="status">{{status.activeStatus}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
